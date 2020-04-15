@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cooly-me.github.io</id>
     <title>Gridea</title>
-    <updated>2020-04-15T05:17:17.481Z</updated>
+    <updated>2020-04-15T05:22:45.252Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cooly-me.github.io"/>
     <link rel="self" href="https://cooly-me.github.io/atom.xml"/>
@@ -11,12 +11,136 @@
     <icon>https://cooly-me.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
     <entry>
-        <title type="html"><![CDATA[adfsdfsdf]]></title>
+        <title type="html"><![CDATA[Gradle - build.gradle常用用法]]></title>
         <id>https://cooly-me.github.io/post/adfsdfsdf/</id>
         <link href="https://cooly-me.github.io/post/adfsdfsdf/">
         </link>
         <updated>2020-04-15T05:12:38.000Z</updated>
-        <content type="html"><![CDATA[<p>xczvvx</p>
+        <content type="html"><![CDATA[<p>最近一直在用Gradle来构建java应用，但是对于Gradle文件的写法不是很了解，一直都是跟度娘进行沟通。现在正好总结一下项目中用到的一些用法。</p>
+<ol>
+<li>引入插件包</li>
+</ol>
+<p>一个项目中只放置一个build.gradle，build.gradle可以理解为一个Project框架，提供了对一个项目的基本配置。如果需要执行更过的task，比如对java进行编译、打包、部署、移动等操作，就需要引入相应的插件，或者自己写脚本。一般情况下，都是引入插件，然后再指定自己的task，这样减少很多的代码量，提高效率。</p>
+<p>apply from: 'dependency.gradle'  // 加载本地插件</p>
+<p>apply plugin: 'java'             // 加载java插件<br>
+apply plugin: 'eclipse'<br>
+apply plugin: 'base'<br>
+加载了相应的插件后，在gradle task中就会显示插件提供的方法。</p>
+<p>一般java项目都会加载 java , base 两个插件，我用的是eclipse，所以也将eclipse插件引进来了。</p>
+<ol start="2">
+<li>设置工程 source 目录</li>
+</ol>
+<p>// 设置sourceSets,只是project的属性<br>
+sourceSets {<br>
+// 设置main source, 打包需要用到的资源<br>
+main {<br>
+java{<br>
+srcDirs = ['src/main/java']<br>
+}</p>
+<pre><code>    resources {
+        srcDirs = [&quot;src/main/resources&quot;, &quot;config&quot;]  // 我在这里多加了一个 config 包
+    }
+}
+// 设置test source, 单元测试所需的资源
+</code></pre>
+<ol start="3">
+<li>Project中常用的属性配置</li>
+</ol>
+<p>version = 1.0                                 // 项目版本（全局的）<br>
+sourceCompatibility = 1.8                     // source使用的jdk版本<br>
+targetCompatibility = 1.8                     // 编译时使用的jdk版本<br>
+compileJava.options.encoding = 'UTF-8'        //<br>
+compileTestJava.options.encoding = 'UTF-8'    //<br>
+4. 打jar包并复制</p>
+<p>// 定义一个task, 继承自 jar task, 并依赖于 compileJava task<br>
+task assembleProject1Jar(type: Jar, dependsOn:[compileJava]) {<br>
+onlyIf { !sourceSets.main.allSource.files.isEmpty() }<br>
+// 打包后的jar基本名<br>
+baseName 'project1'<br>
+// version<br>
+version ''</p>
+<pre><code>// 选择编译后的class进行打包
+from ('build/classes/java/main/')
+include (['priv/allen/common/entity/*.class',
+          'priv/allen/common/controller/*.class',
+          'priv/allen/common/service/*.class',
+          'priv/allen/common/dao/*.class']) 
+
+// 打包后的操作
+doLast {
+	copy {
+		from('build/libs') {
+			include baseName + version + '.jar'
+		}
+        // 将打好的jar包复制到 workspace 中的另一个工程下
+		into('../Project2/lib')
+	}
+}       		      
+</code></pre>
+<p>}<br>
+5. 在task执行后做一些操作</p>
+<p>clean.doLast {<br>
+if (file('target').exists()) {<br>
+file('target').deleteDir()<br>
+}<br>
+}<br>
+如果需要在 clean 操作后面添加一些额外的操作，可以采用 doLast 语法。</p>
+<ol start="6">
+<li>gradle中的常用属性可以写在gradle.properties中</li>
+</ol>
+<p>一个gradle文件中的属性有很多,比如 jdk版本，编码类型，dependency 版本。如果都放在 build.gradle 中势必不好管理哦（经验哦），那么gradle默认提供了一个 gradle.properties 文件。用这个文件来管理所有的属性在合适不过了，下面就来试试哦！</p>
+<p>gradle.properties：</p>
+<p>jdkVersion= 1.8<br>
+encodingType= UTF-8<br>
+configFile = config.gradle</p>
+<h2 id="-group-id-artifact-id-version-">--- group id, artifact id, version   -----</h2>
+<p>GroupId = priv.allen.sso<br>
+projectVersion = 1.0</p>
+<p>springBootVersion = 2.0.3.RELEASE<br>
+我们将一些常用的属性都定义在了上面这个文件中，那么在gradle脚本中就可以直接使用了，看代码：</p>
+<p>build.gradle:</p>
+<p>apply from: &quot;${configFile}&quot;    // 引用了另一个配置文件<br>
+apply plugin: 'java'<br>
+apply plugin: 'jacoco'<br>
+apply plugin: 'base'<br>
+apply plugin: 'eclipse'<br>
+apply plugin: 'maven'<br>
+apply plugin: 'maven-publish'</p>
+<p>sourceCompatibility = jdkVersion<br>
+targetCompatibility = jdkVersion<br>
+compileJava.options.encoding = encodingType<br>
+compileTestJava.options.encoding = encodingType<br>
+group = GroupId<br>
+version = projectVersion</p>
+<p>buildscript {<br>
+repositories {<br>
+mavenCentral()<br>
+}</p>
+<pre><code>dependencies {
+    classpath(&quot;org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}&quot;)
+    //classpath 'org.springframework:springloaded:1.2.7.RELEASE'
+}
+</code></pre>
+<p>}<br>
+简单不，在 gradle.properties 文件定义的所有属性（常量），就可以拿来用哦，引用变量值的用法： ${varName} 。</p>
+<p>注意哦，这个文件中的第一行还有一种用法，引用了一个外部配置文件：config.gradle (这个名字可以随便起，这是我们自己定义的)。必须在gradle文件中使用 apply from 语法引入进来才可以使用，我们在这个文件中放置了一些 ext 变量，以便支持不同的环境（windows, linux等），每一个环境对应一个config文件，需要的时候切换。</p>
+<p>config.gradle(我这里是随便写了个例子):</p>
+<p>ext{<br>
+nameList =[<br>
+&quot;bom&quot;,<br>
+&quot;detail&quot;,<br>
+&quot;feeding&quot;,<br>
+&quot;component&quot;,<br>
+&quot;dataprocess&quot;,<br>
+&quot;parse&quot;,<br>
+&quot;roduct_config_setting&quot;,<br>
+&quot;product_setting&quot;,<br>
+&quot;product_uph_setting&quot;,<br>
+&quot;vendor&quot;,<br>
+&quot;workorder&quot;,<br>
+&quot;sap&quot;<br>
+]</p>
+<p>}</p>
 ]]></content>
     </entry>
     <entry>
