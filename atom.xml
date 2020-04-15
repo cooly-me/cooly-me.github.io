@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://cooly_dome.github.io</id>
+    <id>https://cooly-me.github.io</id>
     <title>Gridea</title>
-    <updated>2020-04-15T05:13:04.622Z</updated>
+    <updated>2020-04-15T05:15:57.586Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://cooly_dome.github.io"/>
-    <link rel="self" href="https://cooly_dome.github.io/atom.xml"/>
+    <link rel="alternate" href="https://cooly-me.github.io"/>
+    <link rel="self" href="https://cooly-me.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://cooly_dome.github.io/images/avatar.png</logo>
-    <icon>https://cooly_dome.github.io/favicon.ico</icon>
+    <logo>https://cooly-me.github.io/images/avatar.png</logo>
+    <icon>https://cooly-me.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
     <entry>
         <title type="html"><![CDATA[adfsdfsdf]]></title>
-        <id>https://cooly_dome.github.io/post/adfsdfsdf/</id>
-        <link href="https://cooly_dome.github.io/post/adfsdfsdf/">
+        <id>https://cooly-me.github.io/post/adfsdfsdf/</id>
+        <link href="https://cooly-me.github.io/post/adfsdfsdf/">
         </link>
         <updated>2020-04-15T05:12:38.000Z</updated>
         <content type="html"><![CDATA[<p>xczvvx</p>
@@ -21,8 +21,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://cooly_dome.github.io/post/hello-gridea/</id>
-        <link href="https://cooly_dome.github.io/post/hello-gridea/">
+        <id>https://cooly-me.github.io/post/hello-gridea/</id>
+        <link href="https://cooly-me.github.io/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
