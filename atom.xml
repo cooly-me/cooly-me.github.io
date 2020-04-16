@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cooly-me.github.io</id>
     <title>cooly-me</title>
-    <updated>2020-04-16T05:47:13.948Z</updated>
+    <updated>2020-04-16T05:52:10.467Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cooly-me.github.io"/>
     <link rel="self" href="https://cooly-me.github.io/atom.xml"/>
@@ -20,6 +20,20 @@
 <p>PHP最初是由勒多夫在1995年开始开发的；现在PHP的标准由the PHP Group[2]维护。PHP以PHP License作为许可协议，不过因为这个协议限制了PHP名称的使用，所以和开放源代码许可协议GPL不兼容。[3]</p>
 <p>PHP的应用范围相当广泛，尤其是在网页程序的开发上。一般来说PHP大多运行在网页服务器上，透过运行PHP代码来产生用户浏览的网页。PHP可以在多数的服务器和操作系统上运行。根据2013年4月的统计数据，PHP已经被安装在超过2亿4400万个网站和210万台服务器上[4]。</p>
 <p>PHP在Windows上有专门的官方移植编译项目，并且分多个VC编译器版本和线程安全特性来提供不同的版本支持。</p>
+<p>PHP原本的简称为Personal Home Page[5]，是拉斯姆斯·勒多夫为了要维护个人网页，而用c语言开发的一些CGI工具程序集，来取代原先使用的Perl程序。最初这些工具程序用来显示拉斯姆斯·勒多夫的个人履历，以及统计网页流量[6]。他将这些程序和一些窗体解释器集成起来，称为PHP/FI。PHP/FI可以和数据库连接，产生简单的动态网页程序。拉斯姆斯·勒多夫在1995年6月8日将PHP/FI公开发布，希望可以透过社群来加速程序开发与查找错误[7]。这个发布的版本命名为PHP 2，已经有今日PHP的一些雏型，像是类似Perl的变量命名方式、窗体处理功能、以及嵌入到HTML中运行的能力。程序语法上也类似Perl，有较多的限制，不过更简单、更有弹性。[6]</p>
+<p>在1997年，任职于Technion IIT公司的两个以色列程序员：Zeev Suraski和Andi Gutmans，重写了PHP的语法分析器，成为PHP 3的基础，而PHP也在这个时候改称为PHP: Hypertext Preprocessor.[6]。经过几个月测试，开发团队在1997年11月发布了PHP/FI 2，随后就开始PHP 3的开放测试，最后在1998年6月正式发布PHP 3。Zeev Suraski和Andi Gutmans在PHP 3发布后开始改写PHP的核心，这个在1999年发布的语法分析器称为Zend Engine[8]，他们也在以色列的Ramat Gan成立了Zend Technologies来管理PHP的开发。[6]<br>
+<img src="https://cooly-me.github.io/post-images/1587016150290.svg" alt="" loading="lazy"><br>
+在2000年5月22日，以Zend Engine 1.0为基础的PHP 4正式发布，2004年7月13日则发布了PHP 5，PHP 5则使用了第二代的Zend Engine[6]。PHP 5包含了许多新特色，像是强化的面向对象功能、引入PDO（PHP Data Objects，一个访问数据库的延伸库）、以及许多性能上的增强[9]。当前PHP 4已经不会继续更新，以鼓励用户转移到PHP 5。[10][11]</p>
+<p>2008年时，PHP 5成为了PHP唯一维护中的稳定版本。</p>
+<p>PHP 7的首个版本于2015年12月3日开发完成，包含了大量性能上的改进，同时也带来了一些新特性，最值得注意的是返回值类型声明、标量类型声明（可用于参数及返回值）。</p>
+<p><img src="https://cooly-me.github.io/post-images/1587016245593.png" alt="" loading="lazy"><br>
+吉祥物：elePHPant<br>
+PHP项目的吉祥物名叫“elePHPant”，PHP的logo在一头蓝象的里面，由文森·庞蒂尔(Vincent Pontier)[26]在1998年[27]设计。其设计概念是从侧面看 PHP 像只大象[28]。当elePHPant被制作成毛绒玩具时，有时颜色会有不同。</p>
+<p><img src="https://cooly-me.github.io/post-images/1587016290153.png" alt="" loading="lazy"><br>
+PHP是一个应用范围很广的语言，特别是在网络程序开发方面。一般来说PHP大多在服务端运行，透过运行PHP的代码来产生网页提供浏览器读取，此外也可以用来开发命令行脚本程序和用户端的GUI应用程序。PHP可以在许多的不同种的服务器、操作系统、平台上运行，也可以和许多数据库系统结合。使用PHP不需要任何费用，官方组织PHP Group提供了完整的程序源代码，允许用户修改、编译、扩展来使用。[29]</p>
+<p>据National Vulnerability Database数据显示，与PHP有关的数据库攻击比例为：20% 2004, 28% 2005, 43% 2006, 36% 2007, 35% 2008 and 32% 2009[30]。其中很多的漏洞都可以通过远程操作完成，如：黑客可以通过网络连接攻击服务器，达到盗取或毁坏数据，发送垃圾邮件或进行分布式拒绝服务攻击。但是随着更多的关注，PHP也变得越来越安全了。</p>
+<p>PHP官网被骇入事件<br>
+2010年12月17日，PHP代码“贡献者名单”中被加入“Wolegequ Gelivable”字样（中文含义“我勒个去 给力”），约半小时后被删除。[31][32][33]2011年3月19日，PHP官方发布声明[34]指出，黑客可能是通过wiki.php.net作为入口攻击了代码系统。并且，官方已经检查过自版本5.3.5以来发布的代码，并没有发现恶意内容。但官方同时表示，尚未完全掌握黑客发动本次攻击的具体细节。</p>
 ]]></content>
     </entry>
     <entry>
