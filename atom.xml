@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cooly-me.github.io</id>
     <title>cooly-me</title>
-    <updated>2020-04-16T05:40:05.718Z</updated>
+    <updated>2020-04-16T05:41:20.948Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cooly-me.github.io"/>
     <link rel="self" href="https://cooly-me.github.io/atom.xml"/>
@@ -16,7 +16,8 @@
         <link href="https://cooly-me.github.io/post/es6es7es8es9es10-xin-te-xing-yi-lan/">
         </link>
         <updated>2020-04-16T05:37:38.000Z</updated>
-        <content type="html"><![CDATA[<p>ES全称ECMAScript，ECMAScript是ECMA制定的标准化脚本语言。目前JavaScript使用的ECMAScript版本为ECMA-417。关于ECMA的最新资讯可以浏览<br>
+        <content type="html"><![CDATA[<!-- more -->
+<p>ES全称ECMAScript，ECMAScript是ECMA制定的标准化脚本语言。目前JavaScript使用的ECMAScript版本为ECMA-417。关于ECMA的最新资讯可以浏览<br>
 ECMA news查看。</p>
 <p>ECMA规范最终由TC39敲定。TC39由包括浏览器厂商在内的各方组成，他们开会推动JavaScript提案沿着一条严格的发展道路前进。<br>
 从提案到入选ECMA规范主要有以下几个阶段：</p>
