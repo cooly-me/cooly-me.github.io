@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cooly-me.github.io</id>
     <title>cooly-me</title>
-    <updated>2020-04-23T13:58:04.638Z</updated>
+    <updated>2020-04-23T14:03:19.064Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cooly-me.github.io"/>
     <link rel="self" href="https://cooly-me.github.io/atom.xml"/>
@@ -16,7 +16,7 @@
         <link href="https://cooly-me.github.io/post/docker-da-jian-mysql-ji-qun/">
         </link>
         <updated>2020-04-23T13:16:53.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="docker基本指令">docker基本指令：</h1>
+        <content type="html"><![CDATA[<h3 id="docker基本指令">docker基本指令：</h3>
 <h3 id="更新软件包">更新软件包</h3>
 <p><code>yum -y update</code></p>
 <h3 id="安装docker虚拟机centos-7">安装Docker虚拟机（centos 7）</h3>
@@ -70,7 +70,7 @@ docker.io/hello-world                      latest              e38bc07ac18e     
 docker.io/percona/percona-xtradb-cluster   latest              f1439de62087        3 months ago        413 MB
 docker.io/java                             latest              d23bdf5b1b1b        17 months ago       643 MB
 </code></pre>
-<h3 id="dockerioperconapercona-xtradb-cluster-太长进行改名">docker.io/percona/percona-xtradb-cluster 太长，进行改名：</h3>
+<p>docker.io/percona/percona-xtradb-cluster 太长，进行改名：</p>
 <pre><code>[root@VM_71_225_centos ~]# docker tag percona/percona-xtradb-cluster pxc
 [root@VM_71_225_centos ~]# docker images
 REPOSITORY                                 TAG                 IMAGE ID            CREATED             SIZE

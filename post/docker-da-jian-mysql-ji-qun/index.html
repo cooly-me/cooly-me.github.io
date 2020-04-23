@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>docker 搭建Mysql集群 | cooly-me</title>
-<link rel="shortcut icon" href="https://cooly-me.github.io/favicon.ico?v=1587650236204">
+<link rel="shortcut icon" href="https://cooly-me.github.io/favicon.ico?v=1587650595954">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cooly-me.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="docker 搭建Mysql集群 | cooly-me - Atom Feed" href="https://cooly-me.github.io/atom.xml">
@@ -37,7 +37,7 @@ servi..." />
       <div class="main-content">
         <div class="site-header">
   <a href="https://cooly-me.github.io">
-  <img class="avatar" src="https://cooly-me.github.io/images/avatar.png?v=1587650236204" alt="">
+  <img class="avatar" src="https://cooly-me.github.io/images/avatar.png?v=1587650595954" alt="">
   </a>
   <h1 class="site-title">
     cooly-me
@@ -114,7 +114,7 @@ servi..." />
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h1 id="docker基本指令">docker基本指令：</h1>
+                <h3 id="docker基本指令">docker基本指令：</h3>
 <h3 id="更新软件包">更新软件包</h3>
 <p><code>yum -y update</code></p>
 <h3 id="安装docker虚拟机centos-7">安装Docker虚拟机（centos 7）</h3>
@@ -168,7 +168,7 @@ docker.io/hello-world                      latest              e38bc07ac18e     
 docker.io/percona/percona-xtradb-cluster   latest              f1439de62087        3 months ago        413 MB
 docker.io/java                             latest              d23bdf5b1b1b        17 months ago       643 MB
 </code></pre>
-<h3 id="dockerioperconapercona-xtradb-cluster-太长进行改名">docker.io/percona/percona-xtradb-cluster 太长，进行改名：</h3>
+<p>docker.io/percona/percona-xtradb-cluster 太长，进行改名：</p>
 <pre><code>[root@VM_71_225_centos ~]# docker tag percona/percona-xtradb-cluster pxc
 [root@VM_71_225_centos ~]# docker images
 REPOSITORY                                 TAG                 IMAGE ID            CREATED             SIZE
@@ -299,9 +299,11 @@ haproxy -f /usr/local/etc/haproxy/haproxy.cfg
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li><a href="#docker%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4">docker基本指令：</a><br>
-*
+<li>
 <ul>
+<li>
+<ul>
+<li><a href="#docker%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4">docker基本指令：</a></li>
 <li><a href="#%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E5%8C%85">更新软件包</a></li>
 <li><a href="#%E5%AE%89%E8%A3%85docker%E8%99%9A%E6%8B%9F%E6%9C%BAcentos-7">安装Docker虚拟机（centos 7）</a></li>
 <li><a href="#%E8%BF%90%E8%A1%8C-%E9%87%8D%E5%90%AF-%E5%85%B3%E9%97%ADdocker%E8%99%9A%E6%8B%9F%E6%9C%BA">运行、重启、关闭Docker虚拟机</a></li>
@@ -315,10 +317,11 @@ haproxy -f /usr/local/etc/haproxy/haproxy.cfg
 <li><a href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%83%B3%E8%A6%81%E4%BD%BF%E7%94%A8java%E7%8E%AF%E5%A2%83%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E6%93%8D%E4%BD%9C">当我们想要使用java环境，我们可以这么操作：</a></li>
 </ul>
 </li>
+</ul>
+</li>
 <li><a href="#%E5%AE%89%E8%A3%85pxc%E9%9B%86%E7%BE%A4%E5%9C%A8%E6%AD%A4%E4%B8%8D%E5%81%9Amysql-pxc%E9%9B%86%E7%BE%A4%E4%B8%8Ereplication%E9%9B%86%E7%BE%A4%E7%9A%84%E6%96%B9%E6%A1%88%E4%BC%98%E5%8A%A3%E8%AF%B4%E6%98%8E%E5%9C%A8%E6%AD%A4%E9%80%89%E7%94%A8pxc%E9%9B%86%E7%BE%A4%E6%96%B9%E6%A1%88%E5%A4%9A%E8%8A%82%E7%82%B9%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%BC%BA%E8%81%94%E5%90%88%E6%80%A7">安装PXC集群（在此不做mysql pxc集群与replication集群的方案优劣说明，在此选用pxc集群方案[多节点备份与强联合性]）：</a>
 <ul>
 <li><a href="#%E5%AE%89%E8%A3%85pxc%E9%95%9C%E5%83%8F">安装PXC镜像</a></li>
-<li><a href="#dockerioperconapercona-xtradb-cluster-%E5%A4%AA%E9%95%BF%E8%BF%9B%E8%A1%8C%E6%94%B9%E5%90%8D">docker.io/percona/percona-xtradb-cluster 太长，进行改名：</a></li>
 <li><a href="#%E5%88%9B%E5%BB%BAnet1%E7%BD%91%E6%AE%B5">创建net1网段：</a></li>
 <li><a href="#%E5%88%9B%E5%BB%BA%E4%BA%94%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%8D%B7pxc%E6%97%A0%E6%B3%95%E7%9B%B4%E6%8E%A5%E5%AD%98%E5%8F%96%E5%AE%BF%E7%BB%84%E6%9C%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E6%89%80%E4%BB%A5%E5%88%9B%E5%BB%BA%E4%BA%94%E4%B8%AAdocker%E6%95%B0%E6%8D%AE%E5%8D%B7">创建五个数据卷（pxc无法直接存取宿组机的数据，所以创建五个docker数据卷）</a></li>
 <li><a href="#%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%8D%B7%E4%BD%8D%E7%BD%AE">查看数据卷位置：</a></li>
