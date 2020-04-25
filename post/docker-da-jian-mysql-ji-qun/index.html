@@ -1,94 +1,120 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>docker 搭建Mysql集群 | cooly-me</title>
-<meta name="description" content="stay hungry，stay foolish">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://cooly-me.github.io/favicon.ico?v=1587742170644">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="https://cooly-me.github.io/favicon.ico?v=1587798363690">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cooly-me.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="docker 搭建Mysql集群 | cooly-me - Atom Feed" href="https://cooly-me.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164376524-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-164376524-1');
+</script>
 
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-
+    <meta name="description" content="docker基本指令：
+更新软件包
+yum -y update
+安装Docker虚拟机（centos 7）
+yum install -y docker
+运行、重启、关闭Docker虚拟机
+service docker start
+servi..." />
+    <meta name="keywords" content="docker,nginx" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-  
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://cooly-me.github.io">cooly-me</a></h3>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://cooly-me.github.io">
+  <img class="avatar" src="https://cooly-me.github.io/images/avatar.png?v=1587798363690" alt="">
+  </a>
+  <h1 class="site-title">
+    cooly-me
+  </h1>
+  <p class="site-description">
+    stay hungry，stay foolish
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
   </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
-        
-          <li>
-            
-              <a href="/" class="menu">
-                首页
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/archives" class="menu">
-                归档
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/tags" class="menu">
-                标签
-              </a>
-            
-          </li>
-        
-      </ul>
-    </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/cooly-me" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+        <a href="https://www.zhihu.com/people/mai-zi-1994-70" target="_blank">
+          <i class="ri-zhihu-line"></i>
+        </a>
+      
+    
+      
+    
   </div>
-</nav>
+</div>
 
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          <article class="article">
-            <h1>docker 搭建Mysql集群</h1>
-            <p class="article-meta">
-              2020-04-23
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              docker 搭建Mysql集群
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-04-23
+              </span>
+              <span>
+                7 min read
+              </span>
               
-                <a href="https://cooly-me.github.io/tag/RxsgEwQIR/" class="badge success">
-                  docker
+                <a href="https://cooly-me.github.io/tag/RxsgEwQIR/" class="post-tag">
+                  # docker
                 </a>
               
-                <a href="https://cooly-me.github.io/tag/7-MtHx9Qjb/" class="badge ">
-                  nginx
+                <a href="https://cooly-me.github.io/tag/7-MtHx9Qjb/" class="post-tag">
+                  # nginx
                 </a>
               
-            </p>
+            </div>
             
-            <div class="post-content">
-              <h3 id="docker基本指令">docker基本指令：</h3>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="docker基本指令">docker基本指令：</h3>
 <h3 id="更新软件包">更新软件包</h3>
 <p><code>yum -y update</code></p>
 <h3 id="安装docker虚拟机centos-7">安装Docker虚拟机（centos 7）</h3>
@@ -270,85 +296,119 @@ haproxy -f /usr/local/etc/haproxy/haproxy.cfg
 <h3 id="访问httpip4001dbs">访问http://ip:4001/dbs</h3>
 <h2 id="安装keepalive实现双击热备">安装keepalive实现双击热备</h2>
 
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#docker%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4">docker基本指令：</a></li>
+<li><a href="#%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E5%8C%85">更新软件包</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85docker%E8%99%9A%E6%8B%9F%E6%9C%BAcentos-7">安装Docker虚拟机（centos 7）</a></li>
+<li><a href="#%E8%BF%90%E8%A1%8C-%E9%87%8D%E5%90%AF-%E5%85%B3%E9%97%ADdocker%E8%99%9A%E6%8B%9F%E6%9C%BA">运行、重启、关闭Docker虚拟机</a></li>
+<li><a href="#%E6%90%9C%E7%B4%A2%E9%95%9C%E5%83%8F">搜索镜像</a></li>
+<li><a href="#%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F">下载镜像</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E9%95%9C%E5%83%8F">查看镜像</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E9%95%9C%E5%83%8F">删除镜像</a></li>
+<li><a href="#%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8">运行容器</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E5%88%97%E8%A1%A8">查看容器列表</a>
+<ul>
+<li><a href="#%E5%BD%93%E6%88%91%E4%BB%AC%E6%83%B3%E8%A6%81%E4%BD%BF%E7%94%A8java%E7%8E%AF%E5%A2%83%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E6%93%8D%E4%BD%9C">当我们想要使用java环境，我们可以这么操作：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%AE%89%E8%A3%85pxc%E9%9B%86%E7%BE%A4%E5%9C%A8%E6%AD%A4%E4%B8%8D%E5%81%9Amysql-pxc%E9%9B%86%E7%BE%A4%E4%B8%8Ereplication%E9%9B%86%E7%BE%A4%E7%9A%84%E6%96%B9%E6%A1%88%E4%BC%98%E5%8A%A3%E8%AF%B4%E6%98%8E%E5%9C%A8%E6%AD%A4%E9%80%89%E7%94%A8pxc%E9%9B%86%E7%BE%A4%E6%96%B9%E6%A1%88%E5%A4%9A%E8%8A%82%E7%82%B9%E5%A4%87%E4%BB%BD%E4%B8%8E%E5%BC%BA%E8%81%94%E5%90%88%E6%80%A7">安装PXC集群（在此不做mysql pxc集群与replication集群的方案优劣说明，在此选用pxc集群方案[多节点备份与强联合性]）：</a>
+<ul>
+<li><a href="#%E5%AE%89%E8%A3%85pxc%E9%95%9C%E5%83%8F">安装PXC镜像</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BAnet1%E7%BD%91%E6%AE%B5">创建net1网段：</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E4%BA%94%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%8D%B7pxc%E6%97%A0%E6%B3%95%E7%9B%B4%E6%8E%A5%E5%AD%98%E5%8F%96%E5%AE%BF%E7%BB%84%E6%9C%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E6%89%80%E4%BB%A5%E5%88%9B%E5%BB%BA%E4%BA%94%E4%B8%AAdocker%E6%95%B0%E6%8D%AE%E5%8D%B7">创建五个数据卷（pxc无法直接存取宿组机的数据，所以创建五个docker数据卷）</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%8D%B7%E4%BD%8D%E7%BD%AE">查看数据卷位置：</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA5%E8%8A%82%E7%82%B9%E7%9A%84pxc%E9%9B%86%E7%BE%A4">创建5节点的PXC集群</a></li>
+<li><a href="#%E7%AD%89%E5%BE%852%E5%88%86%E9%92%9F%E5%90%8E%E5%86%8D%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%BA%8C%E4%B8%AA%E8%8A%82%E7%82%B9%E7%AD%89%E5%BE%85%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%AE%8C%E6%AF%95%E5%90%8E%E6%89%8D%E8%83%BD%E5%BC%80%E5%90%AF%E7%AC%AC%E4%BA%8C%E4%B8%AA%E8%8A%82%E7%82%B9%E5%AE%9E%E4%BE%8B%E4%B8%8D%E7%84%B6%E4%BC%9A%E7%9E%AC%E9%97%B4%E5%81%9C%E6%AD%A2">等待2分钟后，再创建第二个节点，等待第一个节点实例化完毕后，才能开启第二个节点实例，不然会瞬间停止</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%85%B6%E4%BB%96%E8%8A%82%E7%82%B9">创建其他节点：</a></li>
+<li><a href="#%E6%B5%8B%E8%AF%95%E5%9C%A8%E4%BB%BB%E6%84%8Fmysql%E8%8A%82%E7%82%B9%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93">测试在任意mysql节点创建数据库：</a></li>
+<li><a href="#%E7%99%BB%E5%BD%95%E5%85%B6%E4%BB%96%E8%8A%82%E7%82%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E8%83%BD%E7%9C%8B%E5%88%B0%E5%B7%B2%E7%BB%8F%E8%BF%9B%E8%A1%8C%E4%BA%86%E5%90%8C%E6%AD%A5%E6%9E%84%E6%88%90%E7%AE%80%E5%8D%95%E7%9A%84mysql%E9%9B%86%E7%BE%A4">登录其他节点数据库，能看到已经进行了同步，构成简单的mysql集群</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%89%E8%A3%85haproxy%E8%BF%9B%E8%A1%8C%E9%AB%98%E5%8F%AF%E7%94%A8%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">安装Haproxy进行高可用与负载均衡</a>
+<ul>
+<li><a href="#%E6%8B%89%E5%8F%96haproxy">拉取haproxy</a></li>
+<li><a href="#%E7%BC%96%E5%86%99haproxy%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">编写Haproxy配置文件</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%A6%82%E4%B8%8B">配置文件如下：</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E7%AC%AC1%E4%B8%AAhaproxy%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%9C%8D%E5%8A%A1%E5%99%A8">创建第1个Haproxy负载均衡服务器</a></li>
+<li><a href="#%E8%BF%9B%E5%85%A5h1%E5%AE%B9%E5%99%A8%E5%90%AF%E5%8A%A8haproxy">进入h1容器，启动Haproxy</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F">查看是否启动成功：</a>
+<ul>
+<li><a href="#%E8%AE%BF%E9%97%AEhttpip4001dbs">访问http://ip:4001/dbs</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%89%E8%A3%85keepalive%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%87%BB%E7%83%AD%E5%A4%87">安装keepalive实现双击热备</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
             </div>
           </article>
         </div>
-        <div class="paper" data-aos="fade-in">
-          
-        </div>
-        
-      </div>
 
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://cooly-me.github.io/images/avatar.png?v=1587742170644" class="no-responsive avatar">
-    <div class="text-muted">stay hungry，stay foolish</div>
-    <div class="social-container">
-      
         
-      
+
         
-      
-        
-      
-        
-      
-        
-      
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
-    </div>
-    <div class="row">
-      <ul>
-        
-          
-            <li>
-              <a href="https://cooly-me.github.io/post/docker-da-jian-mysql-ji-qun/">docker 搭建Mysql集群</a>
-            </li>
-          
-        
-      </ul>
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="https://cooly-me.github.io/tag/RxsgEwQIR/" class="badge secondary">
-          docker
-        </a>
-      
-        <a href="https://cooly-me.github.io/tag/7-MtHx9Qjb/" class="badge success">
-          nginx
-        </a>
-      
-    </div>
-  </div>
-  <div class="paper">
-    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://cooly-me.github.io/atom.xml" target="_blank">RSS</a>
-  </div>
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://cooly-me.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
 </div>
 
-
+      </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad()
 
-<script type="application/javascript">
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-AOS.init();
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
 
-hljs.initHighlightingOnLoad()
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
 
-</script>
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
 
-
-
-
+    </script>
   </body>
 </html>
