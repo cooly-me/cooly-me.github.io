@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cooly-me.github.io</id>
     <title>cooly-me</title>
-    <updated>2020-04-25T07:22:44.160Z</updated>
+    <updated>2020-04-25T07:43:23.813Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cooly-me.github.io"/>
     <link rel="self" href="https://cooly-me.github.io/atom.xml"/>
@@ -11,7 +11,16 @@
     <icon>https://cooly-me.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, cooly-me</rights>
     <entry>
-        <title type="html"><![CDATA[底层网络协议]]></title>
+        <title type="html"><![CDATA[地方]]></title>
+        <id>https://cooly-me.github.io/post/about/</id>
+        <link href="https://cooly-me.github.io/post/about/">
+        </link>
+        <updated>2020-04-25T07:27:44.000Z</updated>
+        <content type="html"><![CDATA[<p>作者介绍</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[计算机综合：底层网络协议]]></title>
         <id>https://cooly-me.github.io/post/di-ceng-wang-luo-xie-yi/</id>
         <link href="https://cooly-me.github.io/post/di-ceng-wang-luo-xie-yi/">
         </link>
@@ -72,12 +81,12 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[网络分层]]></title>
+        <title type="html"><![CDATA[计算机综合：网络分层]]></title>
         <id>https://cooly-me.github.io/post/wang-luo-fen-ceng/</id>
         <link href="https://cooly-me.github.io/post/wang-luo-fen-ceng/">
         </link>
         <updated>2020-04-25T06:58:30.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="osi">OSI</h1>
+        <content type="html"><![CDATA[<h1 id="osi模型">OSI模型</h1>
 <h3 id="应用层">应用层</h3>
 <p>网络进程到应用程序。针对特定应用规定各层协议、时序、表示等，进行封装 。在端系统中用软件来实现，如HTTP等</p>
 <h3 id="表示层">表示层</h3>
