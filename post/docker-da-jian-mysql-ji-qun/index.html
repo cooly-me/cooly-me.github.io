@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>docker 搭建Mysql集群 | cooly-me</title>
-<link rel="shortcut icon" href="https://cooly-me.github.io/favicon.ico?v=1587800588791">
+<link rel="shortcut icon" href="https://cooly-me.github.io/favicon.ico?v=1587801153488">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cooly-me.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="docker 搭建Mysql集群 | cooly-me - Atom Feed" href="https://cooly-me.github.io/atom.xml">
@@ -37,7 +37,7 @@ servi..." />
       <div class="main-content">
         <div class="site-header">
   <a href="https://cooly-me.github.io">
-  <img class="avatar" src="https://cooly-me.github.io/images/avatar.png?v=1587800588791" alt="">
+  <img class="avatar" src="https://cooly-me.github.io/images/avatar.png?v=1587801153488" alt="">
   </a>
   <h1 class="site-title">
     cooly-me
@@ -366,25 +366,28 @@ haproxy -f /usr/local/etc/haproxy/haproxy.cfg
 
         
           
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
-          
-            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
-<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
-
-<div id="disqus_thread"></div>
+<div id="gitalk-container"></div>
 
 <script>
 
-var options = {
-  shortname: '',
-  apikey: 'zFGyJJgjr84mhjnnyf2vIb3SN7JctqHTKfvqQnJhuF1r3Wph2VV8uxuctQgPGCW2',
-}
-if ('') {
-  options.api = ''
-}
-var dsqjs = new DisqusJS(options)
+  var gitalk = new Gitalk({
+    clientID: '755ac14dfbcff80cdd6f',
+    clientSecret: '0438e04ad318f77616e63820ad2244fba331476b',
+    repo: 'https://cooly-me.github.io/',
+    owner: 'cooly-me',
+    admin: ['cooly-me'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
 
 </script>
+
+          
 
           
         
