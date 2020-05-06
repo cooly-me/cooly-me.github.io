@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://cooly-me.github.io</id>
     <title>cooly-me</title>
-    <updated>2020-04-25T07:54:39.246Z</updated>
+    <updated>2020-05-06T11:28:40.844Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://cooly-me.github.io"/>
     <link rel="self" href="https://cooly-me.github.io/atom.xml"/>
@@ -10,15 +10,6 @@
     <logo>https://cooly-me.github.io/images/avatar.png</logo>
     <icon>https://cooly-me.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, cooly-me</rights>
-    <entry>
-        <title type="html"><![CDATA[地方]]></title>
-        <id>https://cooly-me.github.io/post/about/</id>
-        <link href="https://cooly-me.github.io/post/about/">
-        </link>
-        <updated>2020-04-25T07:27:44.000Z</updated>
-        <content type="html"><![CDATA[<p>作者介绍</p>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[计算机综合：底层网络协议]]></title>
         <id>https://cooly-me.github.io/post/di-ceng-wang-luo-xie-yi/</id>
